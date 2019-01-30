@@ -33,3 +33,7 @@
 /vendor/
 .rspec
 /spec/tmp
+
+Gemfile.lock
+.ruby-version
+.ruby-gemset

@@ -1,0 +1,23 @@
+<%  @page_title = "Order" %>
+<h1><%= @page_title %></h1>
+
+<% if @orders.present? %>
+  <table class="list">
+    <tr>
+      <th>注文日</th>
+      <th>商品名</th>
+      <th>単価</th>
+      <th>数量</th>
+    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.date %></td>
+        <td><%= order.item.name %></td>
+        <td><%= order.item.price %></td>
+        <td><%= order.number %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>注文履歴がありません。</p>
+<% end %>

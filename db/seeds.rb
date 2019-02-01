@@ -8,17 +8,38 @@
 
 Item.create!(
   [
-   {
-    name: 'お子様御膳',
-    price: 500,
-   },
-   {
-    name: 'お子様弁当',
-    price: 400,
-   },
-   {
-    name: 'キッズプレート',
-    price: 300,
-   }
+    {
+      name: 'お子様御膳',
+      price: 500,
+    },
+    {
+      name: 'お子様弁当',
+      price: 400,
+    },
+    {
+      name: 'キッズプレート',
+      price: 300,
+    }
+  ]
+)
+
+User.create!(
+  [
+    {
+      email: 'test@bento.com',
+      password: '$2a$11$NiT35Lc3cxLxN4gEvMGV.ufYP390R5bi7ZklB.XhQdHY0rCYPvcWS',
+    }
+  ]
+)
+
+
+Order.create!(
+  [
+    {
+      date: '2019-3-1',
+      number: 1,
+      item_id: 2,
+      user_id: 1,
+    }
   ]
 )

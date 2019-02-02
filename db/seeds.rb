@@ -32,14 +32,18 @@ User.create!(
   ]
 )
 
+now = Time.current
 
-Order.create!(
+14.times do |n|
+  Order.create!(
   [
     {
-      date: 'Time.current',
+      date: now.since(n.days),
       number: 1,
       item_id: 2,
       user_id: 1,
     }
   ]
 )
+end
+

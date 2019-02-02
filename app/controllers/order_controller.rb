@@ -1,6 +1,8 @@
 class OrderController < ApplicationController
   def index
-    @target_days = Date.parse('2000-01-01')..Date.parse('2000-1-31')
+    
+    now = Time.current
+    @target_days = (now.beginning_of_month.to_date)..(now.end_of_month.to_date)
     @items = Item.order("id")
     @orders = Order.order("id")
   end

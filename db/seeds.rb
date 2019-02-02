@@ -32,11 +32,10 @@ User.create!(
   ]
 )
 
-
 Order.create!(
   [
     {
-      date: '2019-3-1',
+      date: Time.current,
       number: 1,
       item_id: 2,
       user_id: 1,

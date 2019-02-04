@@ -5,45 +5,47 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+items = [
+  {
+    name: 'お子様御膳',
+    price: 500
+  },
+  {
+    name: 'お子様弁当',
+    price: 400
+  },
+  {
+    name: 'キッズプレート',
+    price: 300
+  }
+]
 
 Item.create!(
-  [
-    {
-      name: 'お子様御膳',
-      price: 500,
-    },
-    {
-      name: 'お子様弁当',
-      price: 400,
-    },
-    {
-      name: 'キッズプレート',
-      price: 300,
-    }
-  ]
+  items
 )
 
 User.create!(
   [
     {
       email: 'test@bento.com',
-      password: '$2a$11$NiT35Lc3cxLxN4gEvMGV.ufYP390R5bi7ZklB.XhQdHY0rCYPvcWS',
+      password: '$2a$11$NiT35Lc3cxLxN4gEvMGV.ufYP390R5bi7ZklB.XhQdHY0rCYPvcWS'
     }
   ]
 )
 
 now = Time.current
 
-14.times do |n|
-  Order.create!(
-  [
-    {
-      date: now.since(n.days),
-      number: 1,
-      item_id: 2,
-      user_id: 1,
-    }
-  ]
-)
+(now.beginning_of_month.to_date..now.end_of_month.to_date).each do |days|
+  Item.all.each do |item|
+    Order.create!(
+      [
+        {
+          date: days,
+          number: item.id + days.day,
+          item_id: item.id,
+          user_id: 1
+        }
+      ]
+    )
+  end
 end
-

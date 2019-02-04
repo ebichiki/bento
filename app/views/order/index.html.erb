@@ -1,7 +1,6 @@
 <%  @page_title = "Order" %>
 <h1><%= @page_title %></h1>
 
-<% if @orders.present? %>
   <table class="list">
     <tr>
       <th>注文日</th>
@@ -11,7 +10,9 @@
 
       <th>取消</th>
     </tr>
-    <% @orders.each do |order| %>
+    <%
+=begin%>
+ <% @orders.each do |order| %>
       <tr>
         <td><%= order.date %></td>
         <td><%= order.item.name %></td>
@@ -19,7 +20,9 @@
         <td><%= order.number %></td>
         <td><%= %>
       </tr>
-    <% end %>
+    <% end %> 
+<%
+=end%>
   </table>
 
 
@@ -33,10 +36,20 @@
     <% @target_days.each do |target_day| %>
       <tr>
         <td><%= target_day %></td>
+        <td><% (0..@items.count).each do |n| %>
+        <%= @monthly_lists[0][n] %> 
+        <% end %>
+        </td>
       </tr>
+
     <% end %>
   </table>
+  
 
-<% else %>
-  <p>注文履歴がありません。</p>
+
+  <% @monthly_lists.each do |monthly_list_row| %>
+  <% monthly_list_row.each do |monthly_col| %>
+    <%= monthly_col %>
+  <% end %>
 <% end %>
+

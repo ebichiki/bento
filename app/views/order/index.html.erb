@@ -1,7 +1,9 @@
 <%  @page_title = "Order" %>
 <h1>
   <%= @page_title %>
+  <%= current_user.email %>
 </h1>
+<%= form_tag({action: :index}, {method: :post}) do %>
 <table class="list">
   <tr>
     <th>注文日</th>
@@ -16,11 +18,14 @@
     <td>
       <%= target_day %>
     </td>
-    <% (0..@items.count).each do |n| %>
+    <% (0..@items.count - 1).each do |n| %>
     <td>
-      <%= @monthly_lists[i][n] %>
+      <%= number_field_tag "monthly_list", @monthly_lists[i][n],min:0,max:100 %>
+      <%# <%= @monthly_lists[i][n] %>
     </td>
     <% end %>
   </tr>
   <% end %>
 </table>
+<%= submit_tag '検索する' %>
+<% end %>

@@ -28,7 +28,7 @@ User.create!(
   [
     {
       email: 'test@bento.com',
-      password: '$2a$11$NiT35Lc3cxLxN4gEvMGV.ufYP390R5bi7ZklB.XhQdHY0rCYPvcWS'
+      password: 'bento0141'
     }
   ]
 )

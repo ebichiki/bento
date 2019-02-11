@@ -1,24 +1,35 @@
-<%  @page_title = "Order" %>
+<% @page_title = "Order" %>
 <h1>
-  <%= @page_title %>
+  <%= @page_title %><br>
+  <%= current_user.email %>
 </h1>
+<% if flash[:notice] %>
+<p>
+  <%= flash[:notice] %>
+</p>
+<% end %>
 <table class="list">
   <tr>
     <th>注文日</th>
-    <% @items.each.with_index do |item| %>
+    <% @column_headers.each.with_index do |column_header| %>
     <th>
-      <%= item.name %><br>
-      <%= item.price %>円</th>
+      <%= column_header.name %><br>
+      <%= column_header.price %>円
+    </th>
     <% end %>
   </tr>
-  <% @target_days.each.with_index do |target_day, i| %>
+  <% @row_headers.each do |target_day| %>
   <tr>
     <td>
       <%= target_day %>
     </td>
-    <% (0..@items.count).each do |n| %>
+    <% (@orders[target_day]).each do |order| %>
     <td>
-      <%= @monthly_lists[i][n] %>
+      <%= form_with model: order, id: order[:id] do |f| %>
+      <%= f.number_field :number %>
+      <%= f.submit %>
+      <% end %>
+      <%# <%= @monthly_lists[i][n] %>
     </td>
     <% end %>
   </tr>

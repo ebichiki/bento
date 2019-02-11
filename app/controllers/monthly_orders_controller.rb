@@ -1,0 +1,2 @@
+class MonthlyOrdersController < ApplicationController
+end

@@ -7,7 +7,7 @@
 - Ruby on Railsにて開発。
 - Deviseを使用したユーザー認証
 - has_many throughを使用して多対多のリレーションを実装
-- DB(RDB)に対するCRU操作
+- DB(RDB)に対するCRU操作
 
 ## 環境、フレームワーク
 - Ruby 2.5

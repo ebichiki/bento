@@ -16,7 +16,7 @@
 
 ## 使い方（ローカル環境）
 - git clone XXXXXX.git
-- cd InstagramClone/
+- cd bento/
 - `.envrc`ファイルを用意し、以下を記述。
 ~~~
 export GOOGLE_CLIENT_ID=xxxxxxxx

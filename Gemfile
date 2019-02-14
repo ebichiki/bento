@@ -70,3 +70,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'devise-i18n'
+gem 'font-awesome-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'

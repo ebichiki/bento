@@ -16,7 +16,11 @@
 
 ## 使い方（ローカル環境）
 - git clone XXXXXX.git
+<<<<<<< HEAD
 - cd bento/
+=======
+- cd /
+>>>>>>> 2be6bd2cac0fc26c5265eb6c08d4ad8d5149165c
 - `.envrc`ファイルを用意し、以下を記述。
 ~~~
 export GOOGLE_CLIENT_ID=xxxxxxxx

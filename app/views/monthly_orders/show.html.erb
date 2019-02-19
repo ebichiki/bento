@@ -1,6 +1,10 @@
-<%= link_to @lastmonth, monthly_order_path(@lastmonth) %>
-<%= params[:yyyymm] %>
-<%= link_to @nextmonth, monthly_order_path(@nextmonth)  %>
+<%= link_to monthly_order_path(@lastmonth) do %>
+<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+<% end %>
+<%= Date.strptime(params[:yyyymm]+"01",'%Y%m%d').strftime("%Y-%m")%>
+<%= link_to monthly_order_path(@nextmonth) do %>
+<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+<% end %>
 <table class="table">
   <thead>
     <tr>

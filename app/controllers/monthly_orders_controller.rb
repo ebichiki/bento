@@ -7,6 +7,8 @@ class MonthlyOrdersController < ApplicationController
   
   def show
     now = Date.strptime(params[:yyyymm]+"01",'%Y%m%d')
+    @lastmonth = now.last_month.strftime("%Y%m")
+    @nextmonth = now.next_month.strftime("%Y%m")
     @row_headers = (now.beginning_of_month.to_date)..(now.end_of_month.to_date)
     @column_headers = Item.select(:name, :price).order(:id)
     monthlyorders = Order.where('user_id = ? and date >= ? and date <= ? ',
@@ -40,4 +42,5 @@ class MonthlyOrdersController < ApplicationController
       end
     end   
   end
+
 end

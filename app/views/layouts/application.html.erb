@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= page_title %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>
+    <%= page_title %>
+  </title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
 
-  <body>
-    <div id="container">
-     
-      <main>
-        <%= yield %>
-      </main>
-     
-    </div>
-  </body>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= render 'shared/navbar' %>
+  <%= yield %>
+
+  </div>
+</body>
+
 </html>

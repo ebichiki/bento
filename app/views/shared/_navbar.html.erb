@@ -1,0 +1,10 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Bento</a>
+  <div id="user-info">
+    <% if user_signed_in? %>
+    <%= link_to 'Sign out', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", method: :delete  %>
+    <% else %>
+    <%= link_to "Sign in", user_google_oauth2_omniauth_authorize_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+</nav>

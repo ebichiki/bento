@@ -1,32 +1,42 @@
-<% @page_title = "Order" %>
-<h1>
-  <%= @page_title %><br>
-  <%= current_user.email %>
-</h1>
-<table class="list">
-  <tr>
-    <th>注文日</th>
-    <% @column_headers.each.with_index do |column_header| %>
-    <th>
-      <%= column_header.name %><br>
-      <%= column_header.price %>円
-    </th>
-    <% end %>
-  </tr>
-  <% @row_headers.each do |target_day| %>
-  <tr>
-    <td>
-      <%= target_day %>
-    </td>
-    <% (@orders[target_day]).each do |order| %>
-    <td>
-      <%= form_with model: order, id: order[:id] do |f| %>
-      <%= f.number_field :number %>
-      <%= f.submit %>
+<%= link_to @lastmonth, monthly_order_path(@lastmonth) %>
+<%= params[:yyyymm] %>
+<%= link_to @nextmonth, monthly_order_path(@nextmonth)  %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <% @column_headers.each.with_index do |column_header| %>
+      <th>
+        <%= column_header.name %>
+        <%= column_header.price %>円
+      </th>
       <% end %>
-      <%# <%= @monthly_lists[i][n] %>
-    </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @row_headers.each do |target_day| %>
+    <tr>
+      <td>
+        <%= target_day %>
+      </td>
+      <% (@orders[target_day]).each do |order| %>
+      <td>
+        <%= form_with model: order, id: order[:id] do |f| %>
+        <div class="form-row align-items-center">
+          <div class="col-sm-7">
+            <%= f.number_field :number, in: 0...100, class: "form-control" %>
+          </div>
+          <div class="col-auto my-1">
+            <%= button_tag(type: 'f.submit', class: "btn btn-primary") do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
+
+          <% end %>
+          <%# <%= @monthly_lists[i][n] %>
+      </td>
+      <% end %>
+    </tr>
     <% end %>
-  </tr>
-  <% end %>
+  </tbody>
 </table>

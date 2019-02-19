@@ -43,8 +43,4 @@ class MonthlyOrdersController < ApplicationController
     end   
   end
 
-  def nextmonth
-    now = Date.strptime(params[:yyyymm]+"01",'%Y%m%d')
-    redirect_to action: :show, yyyymm: now
-  end
 end

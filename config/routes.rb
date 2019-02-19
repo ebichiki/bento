@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :monthly_orders, param: :yyyymm
   resources :order
   root 'monthly_orders#index'
-  # put :order, to: 'order#update_all'
 end

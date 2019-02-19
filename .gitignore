@@ -35,7 +35,7 @@
 /spec/tmp
 .envrc
 
-Gemfile.lock
+#Gemfile.lock
 .ruby-version
 .ruby-gemset
 

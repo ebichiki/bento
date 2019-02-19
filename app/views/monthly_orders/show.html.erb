@@ -1,3 +1,6 @@
+<%= link_to @lastmonth, monthly_order_path(@lastmonth) %>
+<%= params[:yyyymm] %>
+<%= link_to @nextmonth, monthly_order_path(@nextmonth)  %>
 <table class="table">
   <thead>
     <tr>
@@ -19,10 +22,18 @@
       <% (@orders[target_day]).each do |order| %>
       <td>
         <%= form_with model: order, id: order[:id] do |f| %>
-        <%= f.number_field :number %>
-        <%= f.submit %>
-        <% end %>
-        <%# <%= @monthly_lists[i][n] %>
+        <div class="form-row align-items-center">
+          <div class="col-sm-7">
+            <%= f.number_field :number, in: 0...100, class: "form-control" %>
+          </div>
+          <div class="col-auto my-1">
+            <%= button_tag(type: 'f.submit', class: "btn btn-primary") do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
+
+          <% end %>
+          <%# <%= @monthly_lists[i][n] %>
       </td>
       <% end %>
     </tr>

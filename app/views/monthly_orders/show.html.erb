@@ -1,7 +1,7 @@
 <%= link_to monthly_order_path(@lastmonth) do %>
 <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
 <% end %>
-<%= Date.strptime(params[:yyyymm]+"01",'%Y%m%d').strftime("%Y-%m")%>
+<%= editMonth(params[:yyyymm]) %>
 <%= link_to monthly_order_path(@nextmonth) do %>
 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
 <% end %>

@@ -1,5 +1,9 @@
 module MonthlyOrdersHelper
-  def editMonth(month)
-    Date.strptime(month + "01",'%Y%m%d').strftime("%Y-%m")
+  def edit_month(month)
+    Date.strptime(month + '01', '%Y%m%d').strftime('%Y-%m')
+  end
+
+  def past?(target_day)
+    target_day <= Date.today
   end
 end
